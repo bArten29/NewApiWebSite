@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>News API Example</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url("https://static.wixstatic.com/media/f39dc2_351f755979614ff684fabcbc9bfd9fc2~mv2.gif");
+            background-repeat: repeat;
+            background-size: cover;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .description {
+            margin-top: 10px;
+            color: #666;
+        }
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            margin-bottom: 0;
+            color:  #e5eaf5;
+            font-family:  OCR A Std, monospace;
+            text-shadow: 2px 2px #000000;
+        }
+        h6 {
+            font-size: 20px;
+            text-align: center;
+            margin-top: 5px;
+            color: #e5eaf5;
+            font-weight: 500;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            font-family:  OCR A Std, monospace;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.2);
+        }
+    .srt:hover {
+        background-color: #0052a3;
+        color: #FFFFFF;
+    }  
+    .frm{
+        display: inline-block;
+        background-color:  #DCDCDC;
+        color:#0066cb;
+        border-radius: 90px;
+        padding: 10px 100px ;
+        margin-bottom: 50px;
+        box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        cursor: pointer;
+    }
+    .frm label {
+        font-size: 20px;
+        color: #0066cb;
+        font-weight: 600;
+        font-family:  OCR A Std, monospace;
+        margin-right: 10px;
+    }
+    .frm select {
+        font-size: 16px;
+        font-family:  OCR A Std, monospace;
+        padding: 5px 10px;
+        margin-right: 10px;
+        border-radius: 20px;
+        color: black;
+        border: 1px solid #CCCCCC;
+    }
+    .frm input[type="submit"] {
+        background-color: #3498db;
+        border: none;
+        color: #fff;
+        padding: 18px 18px;
+        text-align: center;
+        text-decoration: none;
+  
+        font-size: 15px;
+        font-family:  OCR A Std, monospace;
+        border-radius: 90px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        
+    }
+    .frm input[type="submit"]:hover {
+        background-color: #2980b9;
+
+        
+    }
+    .frm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 600px;
+        margin-top: 0px;
+    }
+
+    </style>
+</head>
+<body>
+	<h1>Daily News </h1>
+    <h6>by ALAN</h6>
+    
+    
+
+	<!-- Form to allow user to sort news articles -->
+	<form method="POST" class="frm">
+		<label for="country">Country:</label>
+		<select name="country" id="country">
+			<option value="us">United States</option>
+			<option value="ca">Canada</option>
+			<option value="gb">United Kingdom</option>
+			<option value="au">Australia</option>
+            <option value="in">India </option>
+		</select>
+
+		<label for="category">Category:</label>
+		<select name="category" id="category">
+			<option value="technology">Technology</option>
+			<option value="business">Business</option>
+			<option value="entertainment">Entertainment</option>
+			<option value="health">Health</option>
+			<option value="science">Science</option>
+			<option value="sports">Sports</option>
+			<option value="general">General</option>
+		</select>
+
+		<input type="submit" name="sort" value="Sort" class="srt">
+
+		
+	</form>
+    
+    
+	<!-- Display news articles -->
+    <ul>
+        {% for article in articles %}
+            <li>
+                <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                <p class="description">{{ article.description }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+
+</body>
+</html>
