@@ -1,4 +1,4 @@
-# NewApiWebSite
+# NewsApiWebSite
 
 * This a new api website hosted on pythonanywhere.com
  # liveDemo
