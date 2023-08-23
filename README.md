@@ -1,11 +1,3 @@
-# NewsApiWebSite
-
-* This a new api website hosted on pythonanywhere.com
- # liveDemo
- *http://alancsaji.pythonanywhere.com/
-import requests
-from flask import Flask, render_template, request
-
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
